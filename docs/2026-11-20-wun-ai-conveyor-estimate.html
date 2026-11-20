@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>WUN AI-Конвейер — смета</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 16mm 14mm 14mm 14mm;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+        font-size: 10.2pt;
+        line-height: 1.45;
+        color: #10161f;
+        margin: 0;
+      }
+      h1 {
+        font-size: 22pt;
+        line-height: 1.15;
+        margin: 0 0 4pt;
+        letter-spacing: -0.3pt;
+      }
+      h2 {
+        font-size: 12.5pt;
+        margin: 18pt 0 6pt;
+        padding-bottom: 3pt;
+        border-bottom: 1.5pt solid #10161f;
+      }
+      h3 {
+        font-size: 10.5pt;
+        margin: 12pt 0 4pt;
+      }
+      p {
+        margin: 0 0 6pt;
+      }
+      .kicker {
+        font-size: 8.5pt;
+        letter-spacing: 1.4pt;
+        text-transform: uppercase;
+        color: #6b7683;
+        margin-bottom: 6pt;
+      }
+      .lead {
+        font-size: 10.5pt;
+        color: #3c4757;
+        margin-bottom: 2pt;
+      }
+      .meta {
+        font-size: 8.5pt;
+        color: #6b7683;
+        margin-top: 2pt;
+      }
+      .rule {
+        height: 3pt;
+        background: #10161f;
+        margin: 10pt 0 2pt;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 4pt 0 10pt;
+        font-size: 9.3pt;
+      }
+      th {
+        text-align: left;
+        font-weight: 600;
+        background: #f1f3f6;
+        padding: 4.5pt 5pt;
+        border-bottom: 1pt solid #c9d1da;
+        vertical-align: bottom;
+      }
+      td {
+        padding: 4.5pt 5pt;
+        border-bottom: 0.6pt solid #dde3ea;
+        vertical-align: top;
+      }
+      tr.total td {
+        font-weight: 700;
+        background: #f7f9fb;
+        border-top: 1pt solid #10161f;
+        border-bottom: 1pt solid #10161f;
+      }
+      td.num,
+      th.num {
+        text-align: right;
+        white-space: nowrap;
+      }
+      .cards {
+        display: flex;
+        gap: 8pt;
+        margin: 8pt 0 12pt;
+      }
+      .card {
+        flex: 1;
+        border: 0.8pt solid #c9d1da;
+        border-top: 3pt solid #10161f;
+        padding: 7pt 8pt;
+      }
+      .card .label {
+        font-size: 8pt;
+        letter-spacing: 0.6pt;
+        text-transform: uppercase;
+        color: #6b7683;
+      }
+      .card .value {
+        font-size: 15pt;
+        font-weight: 700;
+        line-height: 1.1;
+        margin: 3pt 0 1pt;
+      }
+      .card .note {
+        font-size: 8pt;
+        color: #6b7683;
+      }
+      ul {
+        margin: 2pt 0 8pt;
+        padding-left: 14pt;
+      }
+      li {
+        margin-bottom: 2.5pt;
+      }
+      .callout {
+        border-left: 3pt solid #10161f;
+        background: #f7f9fb;
+        padding: 6pt 9pt;
+        margin: 8pt 0 10pt;
+        font-size: 9.5pt;
+      }
+      .muted {
+        color: #6b7683;
+      }
+      .avoid {
+        page-break-inside: avoid;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+      .two-col {
+        display: flex;
+        gap: 14pt;
+      }
+      .two-col > div {
+        flex: 1;
+      }
+      footer {
+        margin-top: 14pt;
+        border-top: 0.6pt solid #c9d1da;
+        padding-top: 5pt;
+        font-size: 8pt;
+        color: #6b7683;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="kicker">WUN · оценка проекта</div>
+    <h1>ИИ-конвейер WUN:<br />сколько это стоит</h1>
+    <p class="lead">
+      Автоматическая студия: одна фраза на входе — готовый ролик на выходе. Смета по этапам,
+      инфраструктуре и себестоимости одного ролика.
+    </p>
+    <p class="meta">
+      20 ноября 2026 · редакция 2 (учтены люди, которые следят за системой) · все суммы — оценка,
+      не оферта · пересчёт по курсу 1 $ = 80 ₽ · ставки по рынку РФ
+    </p>
+    <div class="rule"></div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="label">Пилот</div>
+        <div class="value">125 000 ₽</div>
+        <div class="note">1 неделя · один ролик и точная цена</div>
+      </div>
+      <div class="card">
+        <div class="label">Конвейер</div>
+        <div class="value">1 050 000 ₽</div>
+        <div class="note">6 недель · ролики делает система</div>
+      </div>
+      <div class="card">
+        <div class="label">Фабрика</div>
+        <div class="value">1 790 000 ₽</div>
+        <div class="note">14 недель · Лувр и WUN-TV</div>
+      </div>
+      <div class="card">
+        <div class="label">Ролик «под ключ»</div>
+        <div class="value">1 040 ₽</div>
+        <div class="note">материалы + приёмка · продажа 12 000–25 000 ₽</div>
+      </div>
+    </div>
+
+    <h2>1. Четыре варианта</h2>
+    <table class="avoid">
+      <tr>
+        <th style="width: 19%">Вариант</th>
+        <th>Что получает заказчик</th>
+        <th class="num" style="width: 12%">Срок</th>
+        <th class="num" style="width: 17%">Работа</th>
+        <th class="num" style="width: 12%">Аренда</th>
+        <th class="num" style="width: 16%">Всего</th>
+      </tr>
+      <tr>
+        <td><b>A. Пилот</b></td>
+        <td>Один ролик 30 секунд и честный ответ, сколько стоит производство</td>
+        <td class="num">1 нед.</td>
+        <td class="num">120 000 ₽</td>
+        <td class="num">5 000 ₽</td>
+        <td class="num"><b>125 000 ₽</b></td>
+      </tr>
+      <tr>
+        <td><b>B. Конвейер</b></td>
+        <td>Система сама делает ролики от фразы до готового файла</td>
+        <td class="num">6 нед.</td>
+        <td class="num">1 020 000 ₽</td>
+        <td class="num">30 000 ₽</td>
+        <td class="num"><b>1 050 000 ₽</b></td>
+      </tr>
+      <tr>
+        <td><b>C. Фабрика</b></td>
+        <td>Конвейер, ежедневный Лувр, публикация в WUN-TV и приём денег</td>
+        <td class="num">14 нед.</td>
+        <td class="num">1 740 000 ₽</td>
+        <td class="num">50 000 ₽</td>
+        <td class="num"><b>1 790 000 ₽</b></td>
+      </tr>
+      <tr>
+        <td><b>D. Фабрика + стиль</b></td>
+        <td>То же плюс обучение модели на визуальном стиле WUN</td>
+        <td class="num">18 нед.</td>
+        <td class="num">1 920 000 ₽</td>
+        <td class="num">65 000 ₽</td>
+        <td class="num"><b>1 985 000 ₽</b></td>
+      </tr>
+    </table>
+    <p class="muted" style="font-size: 8.6pt">
+      После запуска — 57 000–97 000 ₽ в месяц: аренда видеокарт, технический смотритель
+      и оператор на приёмке контента.
+    </p>
+
+    <h2>2. Из чего складывается работа</h2>
+    <table class="avoid">
+      <tr>
+        <th style="width: 26%">Этап</th>
+        <th>Что делается</th>
+        <th class="num" style="width: 10%">Часы</th>
+        <th class="num" style="width: 15%">Стоимость</th>
+        <th class="num" style="width: 12%">Срок</th>
+      </tr>
+      <tr>
+        <td>Ручной пилот</td>
+        <td>Один ролик руками, замер реальной цены и времени</td>
+        <td class="num">40</td>
+        <td class="num">120 000 ₽</td>
+        <td class="num">1 нед.</td>
+      </tr>
+      <tr>
+        <td>Каркас системы</td>
+        <td>Очередь заданий, этапы, склад файлов, экран приёмки, заглушка вместо модели</td>
+        <td class="num">140</td>
+        <td class="num">420 000 ₽</td>
+        <td class="num">2 нед.</td>
+      </tr>
+      <tr>
+        <td>Настоящие модели</td>
+        <td>Видео, картинки, голос и музыка подключены к каркасу</td>
+        <td class="num">160</td>
+        <td class="num">480 000 ₽</td>
+        <td class="num">2 нед.</td>
+      </tr>
+      <tr>
+        <td>Лувр</td>
+        <td>Три помощника: отбор темы, картинка, аудиогид</td>
+        <td class="num">120</td>
+        <td class="num">360 000 ₽</td>
+        <td class="num">4 нед.</td>
+      </tr>
+      <tr>
+        <td>WUN-TV и деньги</td>
+        <td>Публикация в канал, списание с кошелька за минуты</td>
+        <td class="num">120</td>
+        <td class="num">360 000 ₽</td>
+        <td class="num">4 нед.</td>
+      </tr>
+      <tr>
+        <td>Свой стиль WUN</td>
+        <td>Обучение модели на визуале WUN (LoRA)</td>
+        <td class="num">60</td>
+        <td class="num">180 000 ₽</td>
+        <td class="num">4 нед.</td>
+      </tr>
+      <tr class="total">
+        <td>Итого</td>
+        <td>Шесть этапов, один инженер</td>
+        <td class="num">640</td>
+        <td class="num">1 920 000 ₽</td>
+        <td class="num">18 нед.</td>
+      </tr>
+    </table>
+    <p class="muted" style="font-size: 8.6pt">
+      Средневзвешенная ставка 3 000 ₽/час. Рынок: AI-инженер 3 500 ₽/час, fullstack 2 800 ₽/час,
+      QA и менеджмент 1 800 ₽/час. Два инженера ускоряют примерно в 1,5 раза, не в два.
+    </p>
+
+    <h2>3. Инфраструктура: аренда, а не покупка</h2>
+    <div class="two-col avoid">
+      <div>
+        <table>
+          <tr>
+            <th>Статья</th>
+            <th class="num">Стоимость</th>
+          </tr>
+          <tr>
+            <td>Аренда видеокарт на пилот (10–15 ч)</td>
+            <td class="num">2 400–4 800 ₽</td>
+          </tr>
+          <tr>
+            <td>Аренда в разработке, 3 месяца</td>
+            <td class="num">12 000–28 800 ₽</td>
+          </tr>
+          <tr>
+            <td>Хранение файлов и трафик</td>
+            <td class="num">2 400–7 200 ₽</td>
+          </tr>
+          <tr>
+            <td>Сервисы, домен, мелочи</td>
+            <td class="num">4 800–9 600 ₽</td>
+          </tr>
+          <tr class="total">
+            <td>Итого за 4 месяца</td>
+            <td class="num">21 600–50 400 ₽</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <p style="margin-top: 0">
+          <b>Почему аренда.</b> Своя видеокарта класса RTX 4090 — 200 000–400 000 ₽ сразу,
+          окупается только при загрузке выше 60–70% круглосуточно. На старте такой загрузки нет.
+        </p>
+        <p>
+          Иностранная аренда по часам дешевле: 0,3–0,7 $/час за карту класса 4090,
+          1,2–2 $/час за A100. Российские облака дороже в 1,5–2,5 раза, но дают договор,
+          рубли и закрывающие документы.
+        </p>
+      </div>
+    </div>
+
+    <h2>4. Себестоимость одного ролика (30 секунд)</h2>
+    <table class="avoid">
+      <tr>
+        <th>Статья</th>
+        <th class="num" style="width: 22%">В рублях</th>
+        <th class="num" style="width: 18%">В долларах</th>
+      </tr>
+      <tr>
+        <td>Видео: 6 кадров с переделками</td>
+        <td class="num">400–640 ₽</td>
+        <td class="num">5–8 $</td>
+      </tr>
+      <tr>
+        <td>Картинки и раскадровка</td>
+        <td class="num">80–160 ₽</td>
+        <td class="num">1–2 $</td>
+      </tr>
+      <tr>
+        <td>Озвучка</td>
+        <td class="num">40–80 ₽</td>
+        <td class="num">0,5–1 $</td>
+      </tr>
+      <tr>
+        <td>Музыка</td>
+        <td class="num">40–80 ₽</td>
+        <td class="num">0,5–1 $</td>
+      </tr>
+      <tr>
+        <td>Тексты и проверка</td>
+        <td class="num">80–160 ₽</td>
+        <td class="num">1–2 $</td>
+      </tr>
+      <tr>
+        <td>Склейка, титры, субтитры</td>
+        <td class="num">0 ₽</td>
+        <td class="num">0 $</td>
+      </tr>
+      <tr>
+        <td><b>Материалы (то, что платим провайдерам)</b></td>
+        <td class="num"><b>640–1 120 ₽</b></td>
+        <td class="num"><b>8–10 $</b></td>
+      </tr>
+      <tr>
+        <td>Приёмка человеком: 20–30 минут</td>
+        <td class="num">400–750 ₽</td>
+        <td class="num">—</td>
+      </tr>
+      <tr class="total">
+        <td>Полная себестоимость ролика</td>
+        <td class="num">1 040–1 870 ₽</td>
+        <td class="num">—</td>
+      </tr>
+    </table>
+    <div class="callout">
+      Продажная цена такого ролика — <b>12 000–25 000 ₽</b>, корпоративного пакета —
+      <b>80 000–400 000 ₽</b>. В себестоимость входит и человек: 20–30 минут на приёмку.
+      Первые 20–30 роликов дополнительно «съедают» 2–6 часов инженера каждый.
+    </div>
+
+    <h2>5. Что нужно после запуска: люди и видеокарты</h2>
+    <table class="avoid">
+      <tr>
+        <th style="width: 56%">Статья</th>
+        <th class="num">Часы в месяц</th>
+        <th class="num">Деньги в месяц</th>
+      </tr>
+      <tr>
+        <td>Аренда видеокарт и хранение (20–40 роликов)</td>
+        <td class="num">—</td>
+        <td class="num">12 000–22 000 ₽</td>
+      </tr>
+      <tr>
+        <td>Технический смотритель: дежурство, поломки, обновления моделей</td>
+        <td class="num">10–15</td>
+        <td class="num">30 000–45 000 ₽</td>
+      </tr>
+      <tr>
+        <td>Оператор контента: приёмка роликов, публикация, переписка</td>
+        <td class="num">10–20</td>
+        <td class="num">15 000–30 000 ₽</td>
+      </tr>
+      <tr class="total">
+        <td>Итого в месяц</td>
+        <td class="num">20–35</td>
+        <td class="num">57 000–97 000 ₽</td>
+      </tr>
+    </table>
+    <p class="muted" style="font-size: 8.8pt">
+      В маленькой команде эти две роли часто совмещает один человек — тогда 20–35 часов
+      в месяц. Разово при запуске: обучение оператора 10–20 часов, 15 000–30 000 ₽.
+    </p>
+
+    <h2>6. Когда это окупается</h2>
+    <table class="avoid">
+      <tr>
+        <th>Сценарий</th>
+        <th class="num">Выручка в месяц</th>
+        <th class="num">Расходы</th>
+        <th class="num">Результат</th>
+      </tr>
+      <tr>
+        <td>10 роликов по 15 000 ₽</td>
+        <td class="num">150 000 ₽</td>
+        <td class="num">57 000–97 000 ₽</td>
+        <td class="num"><b>+53 000 … +93 000 ₽</b></td>
+      </tr>
+      <tr>
+        <td>20 роликов по 15 000 ₽</td>
+        <td class="num">300 000 ₽</td>
+        <td class="num">60 000–100 000 ₽</td>
+        <td class="num"><b>+200 000 … +240 000 ₽</b></td>
+      </tr>
+      <tr>
+        <td>2 корпоративных заказа по 100 000 ₽</td>
+        <td class="num">200 000 ₽</td>
+        <td class="num">57 000–97 000 ₽</td>
+        <td class="num"><b>+103 000 … +143 000 ₽</b></td>
+      </tr>
+      <tr>
+        <td>Свои ролики для WUN-TV</td>
+        <td class="num">0 ₽</td>
+        <td class="num">57 000–97 000 ₽</td>
+        <td class="num">дешевле студии, но не бесплатно</td>
+      </tr>
+    </table>
+    <p>
+      Честный вывод: система окупается на объёме. Порог — примерно
+      <b>6–7 роликов в месяц</b> по 15 000 ₽. В первой версии сметы порог стоял на 15–20
+      роликах: там не были учтены человек на приёмке и технический смотритель.
+    </p>
+
+    <h2>7. Что в смету не входит</h2>
+    <div class="two-col avoid">
+      <div>
+        <ul>
+          <li>Реклама и продвижение готового контента.</li>
+          <li>Юридические услуги: права на модели, согласия на голоса, токенизация.</li>
+          <li>Дизайн фирменного стиля — только его техническое применение.</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li>Покупка железа.</li>
+          <li>Налоги и комиссии платёжных систем.</li>
+          <li>Редакция, модерация и SMM канала WUN-TV.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="muted" style="font-size: 8.8pt">
+      Каждый из этих пунктов может стоить больше, чем вся техническая часть. Это стоит
+      проговорить до старта.
+    </p>
+
+    <h2>8. График платежей (предложение)</h2>
+    <table class="avoid">
+      <tr>
+        <th>Когда</th>
+        <th class="num" style="width: 14%">Доля</th>
+        <th class="num" style="width: 22%">Сумма (вариант C)</th>
+        <th style="width: 36%">Условие</th>
+      </tr>
+      <tr>
+        <td>Старт</td>
+        <td class="num">15%</td>
+        <td class="num">268 500 ₽</td>
+        <td>Запуск пилота</td>
+      </tr>
+      <tr>
+        <td>После пилота</td>
+        <td class="num">35%</td>
+        <td class="num">626 500 ₽</td>
+        <td>Решение «идём дальше», видя реальную цену ролика</td>
+      </tr>
+      <tr>
+        <td>Первый автоматический ролик</td>
+        <td class="num">30%</td>
+        <td class="num">537 000 ₽</td>
+        <td>Система сделала ролик без правок кода</td>
+      </tr>
+      <tr>
+        <td>Приёмка</td>
+        <td class="num">20%</td>
+        <td class="num">358 000 ₽</td>
+        <td>Лувр и WUN-TV приняты</td>
+      </tr>
+    </table>
+
+    <h2>9. Риски, которые двигают смету вверх</h2>
+    <table class="avoid">
+      <tr>
+        <th style="width: 58%">Риск</th>
+        <th>Насколько дороже</th>
+      </tr>
+      <tr>
+        <td>Модель не даёт нужного качества: лица, руки, текст в кадре</td>
+        <td>+20–40% часов на подбор и переделки</td>
+      </tr>
+      <tr>
+        <td>Нужны документы и оплата через российское юрлицо</td>
+        <td>+30–60% к стоимости аренды видеокарт</td>
+      </tr>
+      <tr>
+        <td>Свой стиль требуется уже на старте</td>
+        <td>+180 000 ₽</td>
+      </tr>
+      <tr>
+        <td>Публикация в WUN-TV с проверкой прав и модерацией</td>
+        <td>+100 000–200 000 ₽ на юридическую часть</td>
+      </tr>
+      <tr>
+        <td>Сжатые сроки: результат нужен раньше 6 недель</td>
+        <td>+30% за параллельную работу двух инженеров</td>
+      </tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <div class="kicker">WUN · кратко о проекте</div>
+    <h1 style="font-size: 18pt">Что именно мы строим</h1>
+
+    <h2>Задача</h2>
+    <p>
+      Автоматическая студия: человек пишет одну фразу — например, «ролик на 30 секунд про
+      получение паспорта гражданина WUN» — а система сама придумывает сценарий, рисует кадры,
+      генерирует видео, записывает голос, подбирает музыку, склеивает и показывает готовый файл.
+      Человеку остаётся посмотреть и нажать «да» или «переделать».
+    </p>
+    <p>
+      Нового искусственного интеллекта мы не создаём. Мы собираем завод вокруг существующих
+      моделей: очередь заданий, порядок этапов, склад готовых материалов, приёмка, публикация.
+      Сама модель — примерно 20% работы. Остальные 80% — завод вокруг неё. Модели меняются
+      каждые полгода, завод остаётся.
+    </p>
+
+    <h2>Первая неделя: что делается до всех больших денег</h2>
+    <table class="avoid">
+      <tr>
+        <th class="num" style="width: 8%">День</th>
+        <th>Что делаем</th>
+        <th style="width: 34%">Результат к вечеру</th>
+      </tr>
+      <tr>
+        <td class="num">1</td>
+        <td>Арендуем видеокарту, ставим модели для видео и картинок</td>
+        <td>Тестовый фрагмент готов</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td>Пишем сценарий на 30 секунд и раскадровку из 6 кадров</td>
+        <td>Текст и описания кадров</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td>Генерируем 6 фрагментов, по 2–3 попытки на каждый</td>
+        <td>6 годных видеофайлов</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td>Озвучка, музыка, склейка, титры</td>
+        <td>Черновой ролик 30 секунд</td>
+      </tr>
+      <tr>
+        <td class="num">5</td>
+        <td>Считаем фактические деньги и часы, смотрим вместе</td>
+        <td><b>Решение: продолжаем или меняем модели</b></td>
+      </tr>
+    </table>
+    <p class="muted" style="font-size: 8.8pt">
+      На этой неделе ничего не покупаем — только аренда на несколько часов.
+    </p>
+
+    <h2>Путь до конца</h2>
+    <table class="avoid">
+      <tr>
+        <th style="width: 24%">Этап</th>
+        <th class="num" style="width: 12%">Срок</th>
+        <th>Результат</th>
+      </tr>
+      <tr>
+        <td>Ручной пилот</td>
+        <td class="num">1 нед.</td>
+        <td>Понятны качество, цена и время</td>
+      </tr>
+      <tr>
+        <td>Каркас</td>
+        <td class="num">2–3 нед.</td>
+        <td>Система прогоняет задачу до конца без денег на модели</td>
+      </tr>
+      <tr>
+        <td>Настоящие модели</td>
+        <td class="num">4–6 нед.</td>
+        <td>Первый ролик, сделанный системой</td>
+      </tr>
+      <tr>
+        <td>Лувр</td>
+        <td class="num">7–10 нед.</td>
+        <td>Музей обновляется ежедневно, человек утверждает</td>
+      </tr>
+      <tr>
+        <td>WUN-TV и деньги</td>
+        <td class="num">11–14 нед.</td>
+        <td>Публикация и списание с кошелька за минуты</td>
+      </tr>
+      <tr>
+        <td>Свой стиль</td>
+        <td class="num">4–6 мес.</td>
+        <td>Ролики, которые не спутать с чужими</td>
+      </tr>
+    </table>
+
+    <h2>Шесть ошибок исходной идеи</h2>
+    <ol style="margin: 2pt 0 10pt; padding-left: 16pt; font-size: 9.6pt">
+      <li><b>Нереальные сроки.</b> «7 дней на конвейер, 90 дней до дохода» — за неделю можно только руками сделать один ролик.</li>
+      <li><b>«Готовый проект из 14 агентов».</b> Подтверждения такому проекту нет: собирать придётся самим.</li>
+      <li><b>Перепутаны метрики.</b> Проценты «точности» взяты из тестов текстовых моделей, а речь о видео.</li>
+      <li><b>Перепутан автор технологии MCP.</b> Это открытый стандарт Anthropic, а не OpenAI.</li>
+      <li><b>«Бесплатные модели».</b> Файлы бесплатны, видеокарты — нет.</li>
+      <li><b>«Агент работает как режиссёр, кликая мышкой».</b> Самое хрупкое место: любое обновление чужой программы ломает такого агента.</li>
+    </ol>
+
+    <h2>Пять решений, которые нужны от заказчика</h2>
+    <table class="avoid">
+      <tr>
+        <th class="num" style="width: 7%">№</th>
+        <th style="width: 40%">Вопрос</th>
+        <th>Почему важно</th>
+      </tr>
+      <tr>
+        <td class="num">1</td>
+        <td>Бюджет на пилот: 125 000 ₽?</td>
+        <td>Без этого нельзя начать первую неделю</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td>Где арендуем видеокарты: за рубежом или в России?</td>
+        <td>Разница в цене и в документах для бухгалтерии</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td>Кто утверждает контент перед публикацией?</td>
+        <td>Нужно имя, а не «кто-нибудь»</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td>Что первое: реклама для WUN или контент для Лувра?</td>
+        <td>Одновременно нельзя — разные сроки и люди</td>
+      </tr>
+      <tr>
+        <td class="num">5</td>
+        <td>Юридический статус токенизации контента и NFT-патентов</td>
+        <td>Инженерно несложно, юридически не проверено</td>
+      </tr>
+    </table>
+
+    <div class="callout" style="margin-top: 12pt">
+      <b>Итог одной фразой.</b> Начинаем с одного ролика за 1 040–1 870 ₽ и одной недели,
+      а не с фабрики за миллион: сначала доказываем качество и цену, потом строим завод,
+      потом подключаем Лувр, телевидение и деньги.
+    </div>
+
+    <footer>
+      WUN · ИИ-конвейер · смета и краткое описание · 20 ноября 2026 · оценки, не оферта ·
+      подготовлено для внутреннего обсуждения с заказчиком
+    </footer>
+  </body>
+</html>
