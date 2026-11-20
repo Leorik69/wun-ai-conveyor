@@ -26,6 +26,7 @@
 | --- | --- |
 | [`docs/2026-11-20-wun-ai-conveyor-brief-ru.md`](docs/2026-11-20-wun-ai-conveyor-brief-ru.md) | Объяснение простыми словами: что делаем, сколько стоит, сколько займёт |
 | [`docs/2026-11-20-wun-ai-conveyor-plan.md`](docs/2026-11-20-wun-ai-conveyor-plan.md) | Технический разбор: архитектура из 5 частей, схема данных, стадии пилота |
+| [`docs/2026-11-20-wun-ai-conveyor-implementation-plan-ru.md`](docs/2026-11-20-wun-ai-conveyor-implementation-plan-ru.md) | План реализации: стек, структура репозитория, 45 задач по 6 этапам, критерии готовности |
 | [`docs/2026-11-20-wun-ai-conveyor-estimate-ru.md`](docs/2026-11-20-wun-ai-conveyor-estimate-ru.md) | Смета для заказчика: варианты A–D, ставки, инфраструктура, окупаемость |
 | [`docs/2026-11-20-wun-ai-conveyor-estimate.pdf`](docs/2026-11-20-wun-ai-conveyor-estimate.pdf) | Та же смета в PDF — для отправки |
 | [`docs/2026-11-20-wun-ai-conveyor-estimate.html`](docs/2026-11-20-wun-ai-conveyor-estimate.html) | Та же смета в HTML — верстается в PDF |
